@@ -14,10 +14,6 @@ st.write("Модель, интегрированная в АС, является
 st.write("Ниже приведены результаты оценки качества классификации модели.")
 
 
-st.subheader("Accuracy:")
-st.write("0.8125")
-
-
 st.subheader("Classification report:")
 st.image("classification_report.PNG", use_column_width=True)
 
