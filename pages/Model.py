@@ -20,7 +20,3 @@ st.image("classification_report.PNG", use_column_width=True)
 
 st.subheader("Confusion matrix:")
 st.image("confusion_matrix.PNG", use_column_width=True)
-
-
-st.subheader("ROC-curve:")
-st.image("ROC_curve.PNG", use_column_width=True)
