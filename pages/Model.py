@@ -1,22 +1,56 @@
 import streamlit as st
 
-
+# Setting
 st.set_page_config(page_title="Info about Model", page_icon=":🤖:")
 
 
 st.title("Информация о модели")
 
 
-st.subheader("RandomForest:")
-st.write("Модель, интегрированная в АС, является моделью случайного леса. В ходе анализа данных было установлено, что "
-         "данная модель демонстрирует наилучшие метрики (по сравнению с логистической регрессией, которая была взята в"
-         "качестве baseline решения).")
-st.write("Ниже приведены результаты оценки качества классификации модели.")
+st.subheader("Support Vector Machine:")
+st.write("Модель, интегрированная в АС, является моделью машины опорных векторов:")
+st.latex(r'''    
+            С \sum_{i=1}^n max(0, 1 - y_i (<w, x_i> + w_0)) \rightarrow min
+            ''')
 
 
-st.subheader("Classification report:")
-st.image("classification_report.PNG", use_column_width=True)
+st.subheader("Показатели качества классификации:")
+col_acc, _ = st.columns([2, 1])
+col_acc.metric(label="Accuracy", value="0.88")
+
+Pr_mean = 0.66
+Rc_mean = 0.93
+F1_mean = 0.70
 
 
-st.subheader("Confusion matrix:")
-st.image("confusion_matrix.PNG", use_column_width=True)
+st.write("**Класс: внедорожник**")
+Pr_1 = 0.85
+Rc_1 = 0.93
+F1_1 = 0.89
+
+col1_pr, col1_rc, col1_f1 = st.columns([1, 1, 1])
+col1_pr.metric(label="Precision", value=f"{Pr_1}", delta=f"{round(Pr_1 - Pr_mean, 2)}")
+col1_rc.metric(label="Recall", value=f"{Rc_1}", delta=f"{round(Rc_1 - Rc_mean, 2)}")
+col1_f1.metric(label="F1-score", value=f"{F1_1}", delta=f"{round(F1_1 - F1_mean, 2)}")
+
+
+st.markdown("**Класс: лифтбэк**")
+Pr_2 = 0.16
+Rc_2 = 1.00
+F1_2 = 0.28
+
+col2_pr, col2_rc, col2_f1 = st.columns([1, 1, 1])
+col2_pr.metric(label="Precision", value=f"{Pr_2}", delta=f"{round(Pr_2 - Pr_mean, 2)}")
+col2_rc.metric(label="Recall", value=f"{Rc_2}", delta=f"{round(Rc_2 - Rc_mean, 2)}")
+col2_f1.metric(label="F1-score", value=f"{F1_2}", delta=f"{round(F1_2 - F1_mean, 2)}")
+
+
+st.markdown("**Класс: седан**")
+Pr_3 = 0.99
+Rc_3 = 0.87
+F1_3 = 0.92
+
+col3_pr, col3_rc, col3_f1 = st.columns([1, 1, 1])
+col3_pr.metric(label="Precision", value=f"{Pr_3}", delta=f"{round(Pr_3 - Pr_mean, 2)}")
+col3_rc.metric(label="Recall", value=f"{Rc_3}", delta=f"{round(Rc_3 - Rc_mean, 2)}")
+col3_f1.metric(label="F1-score", value=f"{F1_3}", delta=f"{round(F1_3 - F1_mean, 2)}")
