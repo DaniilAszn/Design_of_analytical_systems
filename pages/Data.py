@@ -29,7 +29,7 @@ fig = go.Figure(
 st.plotly_chart(fig, use_container_width=True)
 
 
-st.subheader("Графики распределения физических характееристик:")
+st.subheader("Графики распределения физических характеристик:")
 numeric_cols = df_X.select_dtypes(include='number').columns.tolist()
 selected_col = st.selectbox("Выберите столбец:", numeric_cols)
 
