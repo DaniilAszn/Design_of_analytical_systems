@@ -8,15 +8,22 @@ st.title("Информация о модели")
 
 
 st.subheader("Support Vector Machine:")
-st.write("Модель, интегрированная в АС, является моделью машины опорных векторов:")
+st.write("Модель, интегрированная в систему, является моделью машины опорных векторов:")
 st.latex(r'''    
-            С \sum_{i=1}^n max(0, 1 - y_i (<w, x_i> + w_0)) \rightarrow min
+            С \sum_{i=1}^n max(0, 1 - y_i \underbrace{(<w, x_i> + \ w_0)}_{отступ}) \rightarrow min
             ''')
+
+st.link_button("Подробнее о модели SVM", "https://habr.com/ru/companies/ods/articles/484148/")
 
 
 st.subheader("Показатели качества классификации:")
+st.write("Матрица ошибок")
+st.image("ConfMat.PNG", width=480)
+
+
 col_acc, _ = st.columns([2, 1])
 col_acc.metric(label="Accuracy", value="0.88")
+
 
 Pr_mean = 0.66
 Rc_mean = 0.93
