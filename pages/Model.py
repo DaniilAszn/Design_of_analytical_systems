@@ -10,7 +10,7 @@ st.title("Информация о модели")
 st.subheader("Support Vector Machine:")
 st.write("Модель, интегрированная в систему, является моделью машины опорных векторов:")
 st.latex(r'''    
-            С \sum_{i=1}^n max(0, 1 - y_i \underbrace{(<w, x_i> + \ w_0)}_{отступ}) \rightarrow min
+            \frac{1}{2} ||w||^2 + С \sum_{i=1}^l max(0, 1 - \underbrace{y_i (<w, x_i> + \ w_0)}_{отступ}) \rightarrow min
             ''')
 
 st.link_button("Подробнее о модели SVM", "https://habr.com/ru/companies/ods/articles/484148/")
